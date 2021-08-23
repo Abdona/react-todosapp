@@ -4,6 +4,7 @@
 /* eslint-disable react/prefer-stateless-function */
 import React from 'react';
 import TodosList from './TodosList';
+import InputTodo from './InputTodo';
 
 class TodoContainer extends React.Component {
   constructor(props) {
@@ -44,12 +45,17 @@ class TodoContainer extends React.Component {
   };
 
   delTodo = (id) => {
-    alert('deleted', id);
+    this.setState({
+      todos: [
+        ...this.state.todos.filter((todo) => todo.id !== id),
+      ],
+    });
   };
 
   render() {
     return (
       <div>
+        <InputTodo />
         <TodosList
           todos={this.state.todos}
           handleChangeProps={this.handleChange}

@@ -11,7 +11,6 @@ function TodoItem(props) {
         type="checkbox"
         checked={props.todo.completed}
         onChange={() => props.handleChangeProps(props.todo.id)}
-        deleteTodoProps={props.deleteTodoProps}
       />
       <button onClick={() => props.deleteTodoProps(props.todo.id)}>
         Delete
